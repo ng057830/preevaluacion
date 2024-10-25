@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>¡Aprendamos Álgebra!</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$','$']],
+                displayMath: [['$$','$$']],
+                processEscapes: true
+            }
+        });
+    </script>
+    <style>
+        /* [Estilos anteriores se mantienen igual...] */
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #ff69b4;
+            text-align: center;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 2px solid #ff69b4;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #ffe4e1;
+        }
+
+        select {
+            width: 90%;
+            padding: 8px;
+            border: 2px solid #ffc0cb;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1em;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        select:hover {
+            border-color: #ff69b4;
+        }
+
+        button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #ff1493;
+        }
+
+        .hint {
+            color: #4b0082;
+            margin: 5px 0;
+            font-style: italic;
+            display: none;
+        }
+
+        .correct {
+            background-color: #98fb98;
+        }
+
+        .incorrect {
+            background-color: #ffb6c6;
+        }
+
+        .exercise {
+            margin: 15px 0;
+            padding: 10px;
+            border: 2px solid #ffc0cb;
+            border-radius: 8px;
+        }
+
+        .hint-button {
+            background-color: #9370db;
+            font-size: 0.9em;
+        }
+
+        .mascot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 100px;
+            height: 100px;
+            background-color: #ff69b4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌟 ¡Aventura Algebraica! 🌟</h1>
+
+        <div class="section">
+            <h2>1. ¡Completa la Tabla Mágica! ✨</h2>
+            <table id="algebraTable">
+                <tr>
+                    <th>Expresión algebraica</th>
+                    <th>Coeficiente</th>
+                    <th>Signo</th>
+                    <th>Parte literal</th>
+                </tr>
+                <tr>
+                    <td>$-2x^2y^7$</td>
+                    <td>
+                        <select data-row="0" data-col="coef">
+                            <option value="">Selecciona...</option>
+                            <option value="4">4</option>
+                            <option value="2">2</option>
+                            <option value="7">7</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select data-row="0" data-col="sign">
+                            <option value="">Selecciona...</option>
+                            <option value="positivo">Positivo</option>
+                            <option value="negativo">Negativo</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select data-row="0" data-col="literal">
+                            <option value="">Selecciona...</option>
+                            <option value="x^7y^2">x^7y^2</option>
+                            <option value="x^2y^7">x^2y^7</option>
+                            <option value="y^7x^2">y^7x^2</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>$18x^2y^4z^6$</td>
+                    <td>
+                        <select data-row="1" data-col="coef">
+                            <option value="">Selecciona...</option>
+                            <option value="81">81</option>
+                            <option value="16">16</option>
+                            <option value="18">18</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select data-row="1" data-col="sign">
+                            <option value="">Selecciona...</option>
+                            <option value="negativo">Negativo</option>
+                            <option value="positivo">Positivo</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select data-row="1" data-col="literal">
+                            <option value="">Selecciona...</option>
+                            <option value="x^2y^4z^6">x^2y^4z^6</option>
+                            <option value="z^6x^2y^4">z^6x^2y^4</option>
+                            <option value="y^4x^2z^6">y^4x^2z^6</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>$\frac{4}{13}a^2cb^6$</td>
+                    <td>
+                        <select data-row="2" data-col="coef">
+                            <option value="">Selecciona...</option>
+                            <option value="13/4">13/4</option>
+                            <option value="4/13">4/13</option>
+                            <option value="2/13">2/13</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select data-row="2" data-col="sign">
+                            <option value="">Selecciona...</option>
+                            <option value="negativo">Negativo</option>
+                            <option value="positivo">Positivo</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select data-row="2" data-col="literal">
+                            <option value="">Selecciona...</option>
+                            <option value="b^6a^2c">b^6a^2c</option>
+                            <option value="a^2cb^6">a^2cb^6</option>
+                            <option value="ca^2b^6">ca^2b^6</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>$-\frac{2}{9}a^5b^6$</td>
+                    <td>
+                        <select data-row="3" data-col="coef">
+                            <option value="">Selecciona...</option>
+                            <option value="9/2">9/2</option>
+                            <option value="2/9">2/9</option>
+                            <option value="5/9">5/9</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select data-row="3" data-col="sign">
+                            <option value="">Selecciona...</option>
+                            <option value="positivo">Positivo</option>
+                            <option value="negativo">Negativo</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select data-row="3" data-col="literal">
+                            <option value="">Selecciona...</option>
+                            <option value="b^6a^5">b^6a^5</option>
+                            <option value="a^6b^5">a^6b^5</option>
+                            <option value="a^5b^6">a^5b^6</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div id="tableHints"></div>
+            <button onclick="checkTable()">Verificar Respuestas</button>
+            <button class="hint-button" onclick="showTableHint()">¿Necesitas una pista?</button>
+        </div>
+
+        <div class="section">
+            <h2>2. ¡Traduzcamos al Lenguaje Algebraico! 🎨</h2>
+            <div id="algebraicTranslations"></div>
+            <button onclick="checkTranslations()">Verificar Traducciones</button>
+        </div>
+    </div>
+
+    <div class="mascot" onclick="giveTip()">
+        🦄
+    </div>
+
+    <script>
+        const translations = [
+            {
+                text: "La mitad de un número",
+                correct: "n/2",
+                options: ["2n", "n/2", "n+2", "2/n"]
+            },
+            {
+                text: "El doble de un número aumentado en 5",
+                correct: "2n + 5",
+                options: ["2(n + 5)", "2n + 5", "n + 2 + 5", "2(n/5)"]
+            },
+            {
+                text: "La suma de un número y el doble del mismo número",
+                correct: "n + 2n",
+                options: ["2n", "3n", "n + 2n", "2(n + n)"]
+            },
+            {
+                text: "La suma de 2 números consecutivos",
+                correct: "n + (n + 1)",
+                options: ["n + n", "2n + 1", "n + (n + 1)", "n + 1"]
+            },
+            {
+                text: "La suma de dos números pares consecutivos",
+                correct: "2n + (2n + 2)",
+                options: ["2n + 2", "2(n + 1)", "2n + (2n + 2)", "4n + 2"]
+            },
+            {
+                text: "La suma de dos números impares consecutivos",
+                correct: "(2n + 1) + (2n + 3)",
+                options: ["2n + 3", "(2n + 1) + (2n + 3)", "4n + 4", "2(n + 2)"]
+            },
+            {
+                text: "El cuádruple de un número aumentado en 10",
+                correct: "4n + 10",
+                options: ["4(n + 10)", "4n + 10", "4(n) + 10", "10 + 4n"]
+            },
+            {
+                text: "El doble de la suma de un número aumentado en 8",
+                correct: "2(n + 8)",
+                options: ["2n + 8", "2(n + 8)", "n + 16", "2n + 16"]
+            }
+        ];
+
+        // Función para mezclar un array
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // Inicializar la sección de traducciones
+        window.onload = function() {
+            const translationsDiv = document.getElementById('algebraicTranslations');
+            translations.forEach((problem, index) => {
+                const optionsCopy = [...problem.options];
+                shuffleArray(optionsCopy);
+                
+                const html = `
+                    <div class="exercise">
+                        <p>${index + 1}. ${problem.text}</p>
+                        <select id="ex${index + 1}">
+                            <option value="">Selecciona...</option>
+                            ${optionsCopy.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+                        </select>
+                        <div class="hint" id="hint${index + 1}">Pista: Piensa paso a paso</div>
+                        <button class="hint-button" onclick="showHint(${index + 1})">¿Necesitas una pista?</button>
+                    </div>
+                `;
+                translationsDiv.innerHTML += html;
+            });
+
+            // Inicializar MathJax después de cargar el contenido
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+
+        function checkTranslations() {
+            translations.forEach((problem, index) => {
+                const select = document.getElementById(`ex${index + 1}`);
+                const correct = select.value === problem.correct;
+                select.classList.remove('correct', 'incorrect');
+                select.classList.add(correct ? 'correct' : 'incorrect');
+            });
+        }
+
+        // [Resto del código JavaScript se mantiene igual...]
+        
+    </script>
+</body>
+</html>
